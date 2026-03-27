@@ -6,17 +6,27 @@ metadata:
   openclaw:
     emoji: "📸"
     homepage: https://boring-doc.aiagent-me.com/getting-started/mcp.html
+    requires:
+      config:
+        - MCP Connector link from boring.aiagent-me.com (contains embedded auth token)
 ---
 
 # Boring Instagram Publisher
 
 Publish photos, carousels, and Reels to Instagram. Powered by [Boring](https://boring-doc.aiagent-me.com).
 
+## Security & Data Handling
+
+- **MCP link is a credential**: Your MCP Server URL contains an embedded authentication token. Treat it like a password — do not share it publicly. Regenerate anytime in Settings.
+- **Media uploads**: Local files or URLs are uploaded to Boring's Google Cloud Storage to make them accessible for publishing. Social media APIs require publicly accessible media URLs. Instagram requires media for all posts.
+- **Data flow**: Your content and media are sent from Boring's server to Instagram's API on your behalf via your connected OAuth token.
+- **No local credentials**: No local API keys or environment variables needed. All auth is embedded in the MCP link.
+
 ## Prerequisites
 
 1. **Sign up** at [boring.aiagent-me.com](https://boring.aiagent-me.com) with Google
 2. **Connect Instagram** — requires an **Instagram Business or Creator** account (personal accounts not supported)
-3. **Get your MCP link**: Go to **Settings** → copy your MCP Server URL (looks like `https://boring.aiagent-me.com/mcp/t/xxxxx...`)
+3. **Get your MCP link**: Go to **Settings** → copy your MCP Server URL (contains your auth token — treat it like a password)
 4. **Add to Claude**: Paste the MCP link as a Connector — no install, no API key needed
 
 ## Workflow
