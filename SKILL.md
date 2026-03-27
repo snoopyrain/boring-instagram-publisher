@@ -5,10 +5,7 @@ version: 1.0.0
 metadata:
   openclaw:
     emoji: "📸"
-    requires:
-      env:
-        - BORING_API_KEY
-    primaryEnv: BORING_API_KEY
+    homepage: https://boring-doc.aiagent-me.com/getting-started/mcp.html
 ---
 
 # Boring Instagram Publisher
@@ -17,10 +14,10 @@ Publish photos, carousels, and Reels to Instagram. Powered by [Boring](https://b
 
 ## Prerequisites
 
-1. **Get your API key** at [boring.aiagent-me.com](https://boring.aiagent-me.com) → Settings → Generate API Key
-2. **Add Remote MCP**: Add Boring MCP link `https://boring.aiagent-me.com/mcp` to Claude settings (no local install needed)
-3. **Set** `BORING_API_KEY` environment variable
-4. **Connect Instagram** at [boring.aiagent-me.com](https://boring.aiagent-me.com) — requires an **Instagram Business or Creator** account (personal accounts not supported)
+1. **Sign up** at [boring.aiagent-me.com](https://boring.aiagent-me.com) with Google
+2. **Connect Instagram** — requires an **Instagram Business or Creator** account (personal accounts not supported)
+3. **Get your MCP link**: Go to **Settings** → copy your MCP Server URL (looks like `https://boring.aiagent-me.com/mcp/t/xxxxx...`)
+4. **Add to Claude**: Paste the MCP link as a Connector — no install, no API key needed
 
 ## Workflow
 
