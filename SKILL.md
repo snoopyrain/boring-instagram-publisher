@@ -1,6 +1,6 @@
 ---
-name: boring-instagram-publisher
-description: "Publish posts to Instagram using Boring. Use when the user says 'post to Instagram', 'publish on IG', 'schedule Instagram post', 'create Instagram carousel', 'post a Reel', or wants to publish photos, carousels, or Reels to their Instagram Business account."
+name: instagram-publisher
+description: "Publish posts to Instagram. Use when the user says 'post to Instagram', 'publish on IG', 'schedule Instagram post', 'create Instagram carousel', 'post a Reel', or wants to publish photos, carousels, or Reels to their Instagram Business account."
 version: 1.0.0
 metadata:
   openclaw:
@@ -17,10 +17,12 @@ Publish photos, carousels, and Reels to Instagram. Powered by [Boring](https://b
 
 ## Security & Data Handling
 
-- **MCP link is a credential**: Your MCP Server URL contains an embedded authentication token. Treat it like a password — do not share it publicly. Regenerate anytime in Settings.
-- **Media uploads**: Local files or URLs are uploaded to Boring's Google Cloud Storage to make them accessible for publishing. Social media APIs require publicly accessible media URLs. Instagram requires media for all posts.
-- **Data flow**: Your content and media are sent from Boring's server to Instagram's API on your behalf via your connected OAuth token.
-- **No local credentials**: No local API keys or environment variables needed. All auth is embedded in the MCP link.
+- **MCP link is a credential**: Your MCP Server URL (`https://boring.aiagent-me.com/mcp/t/xxxxx...`) contains an embedded authentication token. Treat it like a password — do not share it publicly.
+- **Token scope**: The embedded token grants **publish access** to your connected social media accounts. It can create posts, upload media, and manage scheduled posts on the platforms you have connected. It cannot access your social media passwords or modify account settings.
+- **Token storage**: The token is stored server-side in Boring's database (MongoDB on DigitalOcean). It is never written to your local filesystem. You can regenerate or revoke it anytime at [boring.aiagent-me.com/settings](https://boring.aiagent-me.com/settings).
+- **Data flow**: Analytics queries are sent from Boring's server (Google Cloud, us-central1) to the platform's API on your behalf. Only performance metrics are retrieved — no content is uploaded or modified.
+- **No local credentials**: No local API keys, environment variables, or secrets are needed. All auth is embedded in the MCP link.
+- **Third-party service**: This skill relies on [Boring](https://boring.aiagent-me.com), an open-source social media management tool. Source code: [github.com/snoopyrain](https://github.com/snoopyrain).
 
 ## Prerequisites
 
